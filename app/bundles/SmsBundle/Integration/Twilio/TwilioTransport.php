@@ -59,12 +59,19 @@ class TwilioTransport implements TransportInterface
         try {
             $this->configureClient();
 
+            $callParams = array(
+                'body'            => $content,
+            );
+
+            if ($this->configuration->isLinkShorteningEnabled()) {
+                $callParams['ShortenUrls'] = "true";
+                $callParams['MessagingServiceSid'] = $this->configuration->getMessagingServiceSid();
+            } else {
+                $callParams['from'] = $this->sendingPhoneNumber;
+            }
+
             $this->client->messages->create(
-                $this->sanitizeNumber($number),
-                [
-                    'from' => $this->sendingPhoneNumber,
-                    'body' => $content,
-                ]
+                $this->sanitizeNumber($number), $callParams
             );
 
             return true;
@@ -115,6 +122,7 @@ class TwilioTransport implements TransportInterface
     {
         if ($this->client) {
             // Already configured
+            $this->client->setLogLevel('debug');
             return;
         }
 
@@ -123,5 +131,6 @@ class TwilioTransport implements TransportInterface
             $this->configuration->getAccountSid(),
             $this->configuration->getAuthToken()
         );
+        $this->client->setLogLevel('debug');
     }
 }

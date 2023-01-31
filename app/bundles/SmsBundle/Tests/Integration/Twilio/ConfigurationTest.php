@@ -27,6 +27,8 @@ class ConfigurationTest extends \PHPUnit\Framework\TestCase
         $integrationSettings = new Integration();
         $integrationSettings->setIsPublished(true);
         $integrationSettings->setFeatureSettings(['sending_phone_number' => '123']);
+        $integrationSettings->setFeatureSettings(['link_shortening_enabled' => true]);
+        $integrationSettings->setFeatureSettings(['messaging_service_sid' => '456']);
         $this->integrationObject = $this->createMock(AbstractIntegration::class);
         $this->integrationObject->method('getIntegrationSettings')
             ->willReturn($integrationSettings);
@@ -72,6 +74,24 @@ class ConfigurationTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('password', $this->getConfiguration()->getAuthToken());
     }
 
+    public function testGetLinkShorteningField() 
+    {
+        $this->integrationObject->method('isLinkShorteningEnabled')
+            ->willReturn(true);
+    }
+
+    public function testGetMessagingServiceSid()
+    {
+        $this->integrationObject->method('getDecryptedApiKeys')
+            ->willReturn(
+                [
+                    'username' => 'username',
+                    'password' => 'password',
+                ]
+            );
+        $this->assertEquals('456', $this->getConfiguration()->getMessagingServiceSid());
+    }
+
     public function testConfigurationExceptionThrownWithoutSendingNumber()
     {
         $this->expectException(ConfigurationException::class);
@@ -105,6 +125,24 @@ class ConfigurationTest extends \PHPUnit\Framework\TestCase
                 ]
             );
         $this->getConfiguration()->getSendingNumber();
+    }
+
+    public function testConfigurationExceptionThrownWithoutLinkShorteningValue()
+    {
+        $this->expectException(ConfigurationException::class);
+        $this->integrationObject->method('isLinkShorteningEnabled')
+            ->willReturn(True);
+        $this->getConfiguration()->isLinkShorteningEnabled();
+    }
+
+    public function testConfigurationExceptionThrownWhenLinkShorteningEnabledWithoutMessagingSid()
+    {
+        $this->expectException(ConfigurationException::class);
+
+        $this->integrationObject->getIntegrationSettings()->setFeatureSettings(['link_shortening_enabled' => True]);
+        $this->integrationObject->getIntegrationSettings()->setFeatureSettings(['messaging_service_sid' => '']);
+
+        $this->getConfiguration()->getMessagingServiceSid();
     }
 
     /**
