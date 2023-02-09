@@ -936,10 +936,12 @@ class Field
 
             if ('notIn' === $this->conditions['expr']) {
                 // value not matched
+
                 if ('' !== $value && !in_array(InputHelper::clean($value), $this->conditions['values'])) {
                     return true;
                 }
             } elseif (in_array(InputHelper::clean($value), $this->conditions['values'])) {
+
                 return true;
             }
         }

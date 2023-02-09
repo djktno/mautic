@@ -90,6 +90,30 @@ class TwilioIntegration extends AbstractIntegration
                     'data'=> !empty($data['disable_trackable_urls']) ? true : false,
                 ]
             );
+            $builder->add(
+                'enable_link_shortening',
+                YesNoButtonGroupType::class,
+                [
+                    'label' => 'mautic.sms.config.form.sms.enable_link_shortening',
+                    'attr'  => [
+                        'tooltip' => 'mautic.sms.config.form.sms.enable_link_shortening.tooltip',
+                    ],
+                    'data'=> !empty($data['enable_link_shortening']) ? true : false,
+                ]
+            );
+            $builder->add(
+                'messaging_service_sid',
+                TextType::class,
+                [
+                    'label' => 'mautic.sms.config.form.sms.messaging_service_sid',
+                    'label_attr' => ['class' => 'control-label'],
+                    'required'   => false,
+                    'attr'       => [
+                        'class'   => 'form-control',
+                        'tooltip' => 'mautic.sms.config.form.sms.messaging_service_sid.tooltip',
+                    ],
+                ]
+            );
             $builder->add('frequency_number', NumberType::class,
                 [
                     'scale'      => 0,

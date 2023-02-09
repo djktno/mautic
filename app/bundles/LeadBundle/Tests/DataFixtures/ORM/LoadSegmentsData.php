@@ -1031,6 +1031,7 @@ class LoadSegmentsData extends AbstractFixture implements OrderedFixtureInterfac
                 ],
                 'populate' => true,
             ],
+
             [ // ID 51
                 'name'     => 'Has Email and visited URL',
                 'alias'    => 'has-email-and-visited-url',
