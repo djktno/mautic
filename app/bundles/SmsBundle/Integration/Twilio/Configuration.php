@@ -25,7 +25,17 @@ class Configuration
     /**
      * @var string
      */
+    private $messagingServiceSid;
+
+    /**
+     * @var string
+     */
     private $authToken;
+
+    /**
+     * @var bool
+     */
+    private $linkShorteningEnabled = false;
 
     /**
      * Configuration constructor.
@@ -64,11 +74,30 @@ class Configuration
      *
      * @throws ConfigurationException
      */
+    public function getMessagingServiceSid()
+    {
+        $this->setConfiguration();
+
+        return $this->messagingServiceSid;
+    }
+
+    /**
+     * @return string
+     *
+     * @throws ConfigurationException
+     */
     public function getAuthToken()
     {
         $this->setConfiguration();
 
         return $this->authToken;
+    }
+
+    public function isLinkShorteningEnabled()
+    {
+        $this->setConfiguration();
+
+        return $this->isLinkShorteningEnabled;
     }
 
     /**
@@ -88,6 +117,16 @@ class Configuration
 
         $this->sendingPhoneNumber = $integration->getIntegrationSettings()->getFeatureSettings()['sending_phone_number'];
         if (empty($this->sendingPhoneNumber)) {
+            throw new ConfigurationException();
+        }
+
+        $this->isLinkShorteningEnabled = $integration->getIntegrationSettings()->getFeatureSettings()['enable_link_shortening'];
+        if (empty($this->isLinkShorteningEnabled)) {
+            throw new ConfigurationException();
+        }
+
+        $this->messagingServiceSid = $integration->getIntegrationSettings()->getFeatureSettings()['messaging_service_sid'];
+        if (empty($this->messagingServiceSid) && $this->isLinkShorteningEnabled) {
             throw new ConfigurationException();
         }
 
