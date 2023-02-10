@@ -1,6 +1,6 @@
 {
   "name": "mautic/mautic",
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-only",
   "type": "project",
   "description": "Mautic Open Source Distribution",
   "funding": [

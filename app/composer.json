@@ -119,7 +119,11 @@
   "prefer-stable": true,
   "config": {
     "preferred-install": "dist",
-    "autoloader-suffix": "Mautic4"
+    "autoloader-suffix": "Mautic4",
+    "allow-plugins": {
+      "symfony/flex": true,
+      "php-http/discovery": true
+    }
   },
   "extra": {
     "mautic-scaffold": {
