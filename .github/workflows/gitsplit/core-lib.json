@@ -3,7 +3,7 @@
         {
             "name": "core-lib",
             "directory": "app",
-            "target": "git@github.com:djktno/mautic-core-lib.git"
+            "target": "git@github.com:djktno/custom-mautic-core-lib.git"
         }
     ]
 }

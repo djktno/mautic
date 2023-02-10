@@ -78,7 +78,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.get-mautic-version.outputs.version }}
-        release_name: Mautic Community ${{ steps.get-mautic-version.outputs.version }}
+        release_name: Mautic Derived ${{ steps.get-mautic-version.outputs.version }}
         draft: true
         prerelease: ${{ steps.is-prerelease.outputs.is-prerelease }}
         body: |
