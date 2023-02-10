@@ -44,7 +44,7 @@ jobs:
             -   uses: frankdejonge/use-github-token@1.0.1
                 with:
                     authentication: 'username:${{ secrets.ACCESS_TOKEN }}'
-                    user_name: 'Github Actions'
+                    user_name: 'djktno'
                     user_email: '224170+djktno@users.noreply.github.com'
 
             # Cache the splitsh executable to speedup future runs
