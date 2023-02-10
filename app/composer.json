@@ -1,6 +1,6 @@
 {
   "name": "djktno/custom-mautic-core-lib",
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-only",
   "type": "library",
   "description": "Mautic Derived Open Source Distribution",
   "autoload": {

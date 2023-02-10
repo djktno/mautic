@@ -22,7 +22,7 @@
     },
   "require": {
     "composer/installers": "^1.11",
-    "djktno/custom-mautic-core-lib": "^4.0"
+    "djktno/custom-mautic-core-lib": "^4.4"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^2.19.2",
@@ -87,7 +87,7 @@
       "url": "app",
       "options": {
         "versions": {
-            "djktno/mautic-core-lib": "4.4.6-s"
+            "djktno/custom-mautic-core-lib": "4.4.6+s"
         }
       }
     },
@@ -129,7 +129,8 @@
     "allow-plugins": {
       "composer/installers": true,
       "composer/package-versions-deprecated": true,
-      "symfony/flex": true
+      "symfony/flex": true,
+      "php-http/discovery": true
     }
   },
   "extra": {
