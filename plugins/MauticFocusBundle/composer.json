@@ -13,6 +13,6 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.4.0 <8.1",
-        "djktno/mautic-custom-core-lib": "^4.0"
+        "djktno/custom-mautic-core-lib": "^4.0"
     }
 }
