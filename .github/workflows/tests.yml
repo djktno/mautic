@@ -17,8 +17,8 @@ jobs:
 
     strategy:
       matrix:
-        php-versions: ['7.4', '8.0']
-        db-types: ['mysql', 'mariadb']
+        php-versions: ['8.0']
+        db-types: ['mariadb']
   
     name: PHPUnit ${{ matrix.php-versions }} ${{ matrix.db-types }}
 
