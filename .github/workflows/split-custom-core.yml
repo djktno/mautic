@@ -1,4 +1,4 @@
-name: 'Split up the monorepo into subrepositories for composer purposes'
+name: 'Split custom core into subrepos'
 
 on:
   workflow_dispatch:
