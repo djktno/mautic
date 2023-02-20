@@ -1,0 +1,9 @@
+{
+    "subtree-splits": [
+        {
+            "name": "MauticFocusBundle",
+            "directory": "plugins/MauticFocusBundle",
+            "target": "git@github.com:djktno/mautic-plugin-focus.git"
+        }
+    ]
+}

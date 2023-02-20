@@ -34,6 +34,8 @@ jobs:
             matrix:
                 config:
                     - core-lib
+                    - plugin-focus
+                    - theme-blank
         name: Sync commits into djktno/${{ matrix.config }}
         steps:
             -   uses: actions/checkout@v2

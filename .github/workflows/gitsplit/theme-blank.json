@@ -1,0 +1,9 @@
+{
+    "subtree-splits": [
+        {
+            "name": "theme-blank",
+            "directory": "themes/blank",
+            "target": "git@github.com:djktno/mautic-theme-blank.git"
+        }
+    ]
+}

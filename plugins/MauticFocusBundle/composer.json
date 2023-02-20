@@ -1,5 +1,5 @@
 {
-    "name": "mautic/plugin-focus",
+    "name": "djktno/mautic-plugin-focus",
     "description": "Focus Plugin",
     "type": "mautic-plugin",
     "keywords": [
@@ -13,6 +13,6 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.4.0 <8.1",
-        "mautic/core-lib": "^4.0"
+        "djktno/mautic-custom-core-lib": "^4.0"
     }
 }
