@@ -1,0 +1,9 @@
+{
+    "subtree-splits": [
+        {
+            "name": "MauticCrmBundle",
+            "directory": "plugins/MauticCrmBundle",
+            "target": "git@github.com:djktno/mautic-plugin-crm.git"
+        }
+    ]
+}
