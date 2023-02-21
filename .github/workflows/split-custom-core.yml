@@ -36,6 +36,7 @@ jobs:
                     - core-lib
                     - plugin-focus
                     - plugin-citrix
+                    - plugin-emailmarketing
                     - theme-blank
         name: Sync commits into djktno/${{ matrix.config }}
         steps:
